@@ -57,6 +57,7 @@
     this.callback = options.callback;
     this.wanted = options.wanted || [];
     this.key = options.key;
+    this.accessToken = options.accessToken;
     this.simpleSheet = !!options.simpleSheet;
     this.parseNumbers = !!options.parseNumbers;
     this.wait = !!options.wait;
@@ -173,6 +174,9 @@
       //support IE8's separate cross-domain object
       var xhr = inLegacyIE ? new XDomainRequest() : new XMLHttpRequest();
       xhr.open("GET", this.endpoint + path);
+      if (this.accessToken) {
+        xhr.setRequestHeader('Authorization', 'Bearer ' + this.accessToken);
+      }
       var self = this;
       xhr.onload = function() {
         try {
@@ -554,7 +558,7 @@
     }
   };
 
-  if(inNodeJS) {
+  if(typeof module !== 'undefined' && module.exports) {
     module.exports = Tabletop;
   } else if (typeof define === 'function' && define.amd) {
     define(function () {
