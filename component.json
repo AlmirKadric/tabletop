@@ -1,0 +1,11 @@
+{
+	"name": "tabletop",
+	"repo": "AlmirKadric/tabletop",
+	"description": "Tabletop.js gives spreadsheets legs",
+	"version": "v1.4.3",
+	"main": "src/tabletop.js",
+	"scripts": [
+		"src/tabletop.js",
+		"src/backbone.tabletopSync.js"
+	]
+}

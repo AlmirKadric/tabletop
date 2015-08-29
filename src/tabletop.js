@@ -2,7 +2,7 @@
   "use strict";
 
   var inNodeJS = false;
-  if (typeof module !== 'undefined' && module.exports) {
+  if (typeof module !== 'undefined' && module.exports && typeof window === 'undefined') {
     inNodeJS = true;
     var request = require('request');
   }
